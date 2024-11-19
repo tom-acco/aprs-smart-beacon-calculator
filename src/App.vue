@@ -22,7 +22,11 @@
                               <div class="text-caption">Slow Interval: {{ Math.floor(form.slowInterval) }}s</div>
                               <v-slider v-model="form.slowInterval" label="" color="secondary" min="60" max="1200" step="10" hide-details></v-slider>
                           </v-col>
-                          <v-col cols="12">
+                          <v-col cols="6">
+                              <div class="text-caption">Max Speed: {{ Math.floor(form.speedMax) }}km/h</div>
+                              <v-slider v-model="form.speedMax" label="" color="secondary" min="10" max="250" step="10" hide-details></v-slider>
+                          </v-col>
+                          <v-col cols="6">
                               <v-btn @click="resetToDefault()" color="secondary">Reset to Defaults</v-btn>
                           </v-col>
                       </v-row>
@@ -71,8 +75,8 @@
                   highSpeed: 120,
                   lowSpeed: 5,
                   fastInterval: 30,
-                  slowInterval: 600,
-                  minInterval: 5,
+                  slowInterval: 300,
+                  speedMax: 100,
               },
 
               form: {
@@ -80,7 +84,7 @@
                   lowSpeed: null,
                   fastInterval: null,
                   slowInterval: null,
-                  minInterval: null,
+                  speedMax: null,
               },
 
               static: {
@@ -174,7 +178,7 @@
           speeds(){
               let nums = [];
 
-              for(let i = 0; i <= 200; i += 5){
+              for(let i = 0; i <= this.form.speedMax; i += 5){
                   nums.push(i);
               }
 
