@@ -30,5 +30,5 @@ jobs:
     - run: npm audit fix
     - run: npm run build
 
-  - name: Upload GitHub Pages artifact
-    uses: actions/upload-pages-artifact@v1
+    - name: Upload GitHub Pages artifact
+      uses: actions/upload-pages-artifact@v1
